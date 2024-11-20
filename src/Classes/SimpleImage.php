@@ -38,7 +38,7 @@ class SimpleImage {
     // Destroys the image resource
     //
     public function __destruct() {
-        if($this->image !== null && get_resource_type($this->image) === 'gd') {
+          if(is_object($this->image) && $this->image instanceof \GDImage) {
             imagedestroy($this->image);
         }
     }
